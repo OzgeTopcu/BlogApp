@@ -20,11 +20,11 @@ namespace BlogAppProject.Data.Concrete.EfCore
                 if (!context.Tags.Any())
                 {
                     context.Tags.AddRange(
-                        new Tag { Text = "web programlama" },
-                        new Tag { Text = "backend" },
-                        new Tag { Text = "frontend" },
-                        new Tag { Text = "fullstack" },
-                        new Tag { Text = "php" }
+                        new Tag { Text = "web programlama", Url="web-programlama" },
+                        new Tag { Text = "backend", Url="backend" },
+                        new Tag { Text = "frontend", Url = "frontend" },
+                        new Tag { Text = "fullstack", Url = "fullstack" },
+                        new Tag { Text = "php", Url = "php" }
                     );
                     context.SaveChanges();
                 }
@@ -45,6 +45,7 @@ namespace BlogAppProject.Data.Concrete.EfCore
                         {
                             Title = "Asp.net core",
                             Content = "Asp.net core dersleri",
+                            Url="aspnet-core",
                             Image = "aspnet.jpg",
                             IsActive = true,
                             PublishedOn = DateTime.Now.AddDays(-10),
@@ -59,7 +60,8 @@ namespace BlogAppProject.Data.Concrete.EfCore
                         {
                             Title = "Php",
                             Content = "Php core dersleri",
-                            IsActive = true,
+							Url = "php",
+							IsActive = true,
                             Image = "php.jpg",
                             PublishedOn = DateTime.Now.AddDays(-20),
                             Tags = context.Tags.Take(2).ToList(),
@@ -69,7 +71,8 @@ namespace BlogAppProject.Data.Concrete.EfCore
                         {
                             Title = "Django",
                             IsActive = true,
-                            Content = "Django dersleri",
+							Url = "django",
+							Content = "Django dersleri",
                             Image = "django.jpg",
                             PublishedOn = DateTime.Now.AddDays(-30),
                             Tags = context.Tags.Take(4).ToList(),
@@ -80,7 +83,8 @@ namespace BlogAppProject.Data.Concrete.EfCore
                         {
                             Title = "React Dersleri",
                             Content = "React dersleri",
-                            IsActive = true,
+							Url = "react-dersleri",
+							IsActive = true,
                             Image = "react.png",
                             PublishedOn = DateTime.Now.AddDays(-40),
                             Tags = context.Tags.Take(4).ToList(),
@@ -91,7 +95,8 @@ namespace BlogAppProject.Data.Concrete.EfCore
                         {
                             Title = "Angular",
                             Content = "Angular dersleri",
-                            IsActive = true,
+							Url = "angular-dersleri",
+							IsActive = true,
                             Image = "angular.jpg",
                             PublishedOn = DateTime.Now.AddDays(-50),
                             Tags = context.Tags.Take(4).ToList(),
@@ -102,7 +107,8 @@ namespace BlogAppProject.Data.Concrete.EfCore
                         {
                             Title = "Web Tasarım",
                             Content = "Web tasarım dersleri",
-                            Image = "web.jpg",
+							Url = "web-tasarım",
+							Image = "web.jpg",
                             IsActive = true,
                             PublishedOn = DateTime.Now.AddDays(-60),
                             Tags = context.Tags.Take(4).ToList(),

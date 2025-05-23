@@ -1,6 +1,7 @@
 using BlogAppProject.Data.Abstract;
 using BlogAppProject.Data.Concrete.EfCore;
 using BlogAppProject.Data.Concrete;
+using BlogAppProject.Entities;
 
 namespace BlogAppProject
 {
@@ -14,8 +15,8 @@ namespace BlogAppProject
             builder.Services.AddControllersWithViews();
 
             builder.Services.AddDbContext<BlogContext>();
-            
-            
+
+
             builder.Services.AddScoped<IPostRepository, EfPostRepository>();
             builder.Services.AddScoped<ITagRepository, EfTagRepositroy>();
 
@@ -35,10 +36,17 @@ namespace BlogAppProject
             app.UseStaticFiles();
 
             app.UseRouting();
-
             app.UseAuthorization();
 
+            //localhost://blogs/react-dersleri
+
             app.MapControllerRoute(
+               name: "post_details",
+               pattern: "/posts/{url}",
+               defaults: new {controller ="Post", action = "Details"}
+               );
+
+			app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
             app.Run();

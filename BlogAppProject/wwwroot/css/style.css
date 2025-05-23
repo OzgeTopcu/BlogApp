@@ -5,3 +5,8 @@
 a{
     text-decoration: none;
 }
+.fixed-image {
+    width: 100%; /* Konteynıra tam oturur */
+    height: 250px; /* Tüm resimler bu yükseklikte olur */
+    object-fit: contain; /* Resmi kırp ama oranını koru */
+}
