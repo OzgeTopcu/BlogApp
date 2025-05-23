@@ -3,60 +3,39 @@
 <!-- CSS bağlantısı -->
 <link rel="stylesheet" href="/css/style.css">
 
-<div class="container mt-5">
-    <div class="row">
-        <!-- Ana içerik -->
-        <div class="col-lg-8">
-            <div class="bg-white p-4 shadow rounded">
-                <h2 class="mb-4">Latest Posts</h2>
-                @foreach (var post in Model.Posts)
-                {
-                    <div class="card mb-4">
-                        <div class="row g-0">
-                            <div class="col-md-4">
-                                <img src="~/img/@post.Image" class="img-fluid rounded-start" alt="@post.Title">
-                            </div>
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <h5 class="card-title">
-                                        <a href="#" class="text-dark fw-bold text-decoration-none">@post.Title</a>
-                                    </h5>
-                                    <p class="card-text">@post.Content</p>
-                                    <a href="#" class="badge bg-danger bg-opacity-10 text-danger fw-bold text-decoration-none">Web Development</a>
-                                </div>
-                            </div>
+<div class="row">
+    <!-- Sol taraf: Popüler gönderiler -->
+    <div class="col-lg-8">
+        <div class="bg-white p-4">
+            <h1 class="h4 mb-4">Popüler Posts</h1>
+            @foreach (var post in Model.Posts)
+            {
+                <div class="card bg-transparent border-0 mb-3">
+                    <div class="row">
+                        <div class="col-4">
+                            <img src="~/img/@post.Image" class="img-fluid rounded" alt="">
+                        </div>
+                        <div class="col-8">
+                            <h5><a href="#" class="btn-link fw-bold">@post.Title</a></h5>
+                            <p>@post.Content</p>
+                            <a href="#" class="badge bg-danger bg-opacity-10 text-danger mb-2 fw-bold"> Web Development </a>
                         </div>
                     </div>
-                }
-
-                <!-- Sayfalama -->
-                <nav>
-                    <ul class="pagination">
-                        <li class="page-item"><a href="#" class="page-link">1</a></li>
-                        <li class="page-item"><a href="#" class="page-link">2</a></li>
-                        <li class="page-item"><a href="#" class="page-link">3</a></li>
-                    </ul>
-                </nav>
-            </div>
+                </div>
+                <hr class="my-3" />
+            }
+            <nav>
+                <ul class="pagination">
+                    <li class="page-item"><a href="#" class="page-link">1</a></li>
+                    <li class="page-item"><a href="#" class="page-link">2</a></li>
+                    <li class="page-item"><a href="#" class="page-link">3</a></li>
+                </ul>
+            </nav>
         </div>
+    </div>
 
-        <!-- Sağ kenar: Popüler gönderiler -->
-        <div class="col-lg-4">
-            <div class="bg-white p-4 shadow rounded">
-                <h4 class="mb-4">Popular Posts</h4>
-                @foreach (var post in Model.Posts.Take(3)) // İlk 3 gönderiyi popüler gibi göster
-                {
-                    <div class="d-flex mb-3">
-                        <img src="~/img/@post.Image" alt="@post.Title" class="me-3 rounded" width="70" height="70" style="object-fit: cover;">
-                        <div>
-                            <h6 class="mb-1">
-                                <a href="#" class="text-dark text-decoration-none fw-semibold">@post.Title</a>
-                            </h6>
-                            <small class="text-muted">Web Development</small>
-                        </div>
-                    </div>
-                }
-            </div>
-        </div>
+    <!-- Sağ taraf: TagsMenu ViewComponent -->
+    <div class="col-lg-4">
+        @await Component.InvokeAsync("TagsMenu")
     </div>
 </div>
