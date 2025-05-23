@@ -45,6 +45,7 @@ namespace BlogAppProject.Data.Concrete.EfCore
                         {
                             Title = "Asp.net core",
                             Content = "Asp.net core dersleri",
+                            Image = "aspnet.jpg",
                             IsActive = true,
                             PublishedOn = DateTime.Now.AddDays(-10),
                             Tags = context.Tags.Take(3).ToList(),
@@ -68,6 +69,7 @@ namespace BlogAppProject.Data.Concrete.EfCore
                         {
                             Title = "Django",
                             IsActive = true,
+                            Content = "Django dersleri",
                             Image = "django.jpg",
                             PublishedOn = DateTime.Now.AddDays(-30),
                             Tags = context.Tags.Take(4).ToList(),
